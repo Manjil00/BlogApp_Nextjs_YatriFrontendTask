@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Yatri Frontend Task
+### Submitted by: Manjil Maharjan
 
-First, run the development server:
+The Blogapp developed in Next.js is a simple blog site containing basic and all the fetures asked in the question. The blogapp fetches a live API and then shows the user a Ui with the title, summary and the published Date. The API-KEY is hidden in .env file and the blogapp has dynaic routes to blogs. With React-loading-skeleton and Pagination, the blogapp is basic yet very well done.
+
+# Features
+- Only 6 blogs shown from live API.
+- Pagination Implemented.
+- React-Skeleton-Loading Implemented.
+- Dynamic Routing to blogs =Implemented.
+- The API consisted of id so creation of id and routing it dynamically.
+
+
+
+## Tech Stack
+**Client:** TailwindCSS, Next.js, Typescript npm packages, React-Skeleton-Loading
+
+
+## Screenshots
+
+![App Screenshot]( public/screenshots/Home.png )
+![App Screenshot](public/screenshots/react-loadingSkeleton.png)
+![App Screenshot]( public/screenshots/SearchbarImplementation.png )
+![App Screenshot]( public/screenshots/DynamicPage.png )
+![App Screenshot]( public/screenshots/Pagination.png )
+
+
+
+
+## 🔗 Links
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://manjilmaharjan-portfolio.netlify.app/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/manjil-maharjan/)
+
+
+
+## Feedback
+
+If you have any feedback, please reach out to me at :
+manzilmaharjan00@gmail.com
+
+## Run Locally
+
+Clone the project
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  git clone {repo sent}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Go to the project directory
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+  cd blogapp
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Install dependencies
 
-## Learn More
+```bash
+  npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+Start the server
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+  npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
