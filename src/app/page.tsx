@@ -1,9 +1,10 @@
+// app/page.tsx (Server Component)
 import Nav from "@/components/Nav";
 import BlogList from "@/components/BlogList";
 
-const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
+const API_KEY = process.env.NEWS_API_KEY;
 
-async function fetchPosts() {
+async function getPosts() {
   try {
     const res = await fetch(
       `https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`,
@@ -16,6 +17,9 @@ async function fetchPosts() {
     return data.articles.map((article: any, index: number) => ({
       ...article,
       id: `${article.title}-${index}`,
+      title: article.title || 'Untitled Post',
+      description: article.description || 'No description available',
+      publishedAt: article.publishedAt || new Date().toISOString(),
     }));
   } catch (error) {
     console.error(error);
@@ -24,7 +28,7 @@ async function fetchPosts() {
 }
 
 export default async function Home() {
-  const posts = await fetchPosts();
+  const posts = await getPosts();
 
   return (
     <div className="min-h-screen bg-black">
@@ -33,7 +37,7 @@ export default async function Home() {
         <h1 className="text-white text-4xl md:text-6xl text-center mb-8">
           Blog App
         </h1>
-        <BlogList allPosts={posts} postsPerPage={6} />
+        <BlogList posts={posts} />
       </main>
     </div>
   );
