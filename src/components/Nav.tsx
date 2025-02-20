@@ -18,7 +18,6 @@ function Nav(){
             <ul className=" cursor-pointer flex flex-col gap-4 md:flex-row  md:gap-8 md:justify-evenly md:text-base font-writingFont">
             <Link href="/"><li className="hover:text-slate-500">Home</li></Link>
             <Link href="/"><li className="hover:text-slate-500">About</li></Link>
-            <Link href="/Contact"><li className="hover:text-slate-500">Contact</li></Link>
             </ul>
         </div>
         <div>
