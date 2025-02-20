@@ -90,7 +90,7 @@ return (
                 {new Date(post.publishedAt).toLocaleDateString()}
                 </span>
                 <Link
-                href={`/blog/${encodeURIComponent(post.id)}`}
+                href={`/BlogList/${encodeURIComponent(post.id)}`}
                 className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors"
                 >
                 Read More
