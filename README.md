@@ -19,11 +19,11 @@ The Blogapp developed in Next.js is a simple blog site containing basic and all 
 
 ## Screenshots
 
-![App Screenshot](/public/screenshots/Home.png )
-![App Screenshot](/public/screenshots/react-loadingSkeleton.png)
-![App Screenshot](/public/screenshots/SearchbarImplementation.png )
-![App Screenshot](/public/screenshots/DynamicPage.png )
-![App Screenshot](/public/screenshots/Pagination.png )
+![App Screenshot](/public/Screenshots/Home.png )
+![App Screenshot](/public/Screenshots/react-loadingSkeleton.png)
+![App Screenshot](/public/Screenshots/SearchbarImplementation.png )
+![App Screenshot](/public/Screenshots/DynamicPage.png )
+![App Screenshot](/public/Screenshots/Pagination.png )
 
 
 
