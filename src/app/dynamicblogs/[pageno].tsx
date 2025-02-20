@@ -1,7 +1,7 @@
 import Nav from '@/components/Nav';
 import React from 'react'
 
-const dynamicblogs = () => {
+const blogs = () => {
 return (
     <div>
         <Nav/>
@@ -10,4 +10,4 @@ return (
 )
 }
 
-export default dynamicblogs;
+export default blogs;
