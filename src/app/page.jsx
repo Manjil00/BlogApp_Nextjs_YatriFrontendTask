@@ -1,4 +1,3 @@
-// app/page.tsx (Server Component)
 import BlogList from "@/app/BlogList/page";
 import Nav from "@/components/Nav";
 
