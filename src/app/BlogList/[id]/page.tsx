@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 
 const API_KEY = process.env.NEWS_API_KEY;
 
-async function getPost(id) {
+export async function getPost(id: string) {
   try {
     const res = await fetch(
       `https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`,
@@ -13,21 +13,21 @@ async function getPost(id) {
     if (!res.ok) throw new Error("Failed to fetch posts");
 
     const data = await res.json();
-    const posts = data.articles.map((article, index) => ({
+    const posts = data.articles.map((article: { title: any; content: any; description: any; publishedAt: any; }, index: any) => ({
       id: `${article.title}-${index}`,
       title: article.title || "Untitled Post",
       content: article.content || article.description || "No content available",
       publishedAt: article.publishedAt || new Date().toISOString(),
     }));
 
-    return posts.find((post) => post.id === decodeURIComponent(id)) || null;
+    return posts.find((post: { id: string; }) => post.id === decodeURIComponent(id)) || null;
   } catch (error) {
     console.error(error);
     return null;
   }
 }
 
-export default async function BlogPost({ params }) {
+export default async function BlogPost({params}) {
   const post = await getPost(params.id);
 
   if (!post) {

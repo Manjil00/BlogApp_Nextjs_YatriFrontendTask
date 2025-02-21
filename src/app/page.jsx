@@ -1,9 +1,9 @@
-import Nav from "./components/Nav";
 import BlogList from "./BlogList/page";
+import Nav from "./components/Nav";
 
 const API_KEY = process.env.NEWS_API_KEY;
 
-async function getPosts() {
+export async function getPosts() {
   try {
     const res = await fetch(
       `https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`,
@@ -25,7 +25,6 @@ async function getPosts() {
     return [];
   }
 }
-
 export default async function Home() {
   const posts = await getPosts();
 
@@ -41,3 +40,4 @@ export default async function Home() {
     </div>
   );
 }
+
