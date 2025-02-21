@@ -18,7 +18,7 @@ async function getPosts() {
     if (!res.ok) throw new Error('Failed to fetch posts');
     
     const data = await res.json();
-    return data.articles.map((article: any, index: number) => ({
+    return data.articles.map((article: { title?: string; description?: string; publishedAt?: string }, index: number) => ({
       ...article,
       id: `${article.title}-${index}`,
       title: article.title || 'Untitled Post',
