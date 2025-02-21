@@ -3,12 +3,12 @@ import { notFound } from 'next/navigation';
 
 const API_KEY = process.env.NEWS_API_KEY;
 
-interface Post {
-id: string;
-title: string;
-content: string;
-publishedAt: string;
-}
+// interface Post {
+// id: string;
+// title: string;
+// content: string;
+// publishedAt: string;
+// }
 
 async function getPost(id: string): Promise<Post | null> {
 try {
