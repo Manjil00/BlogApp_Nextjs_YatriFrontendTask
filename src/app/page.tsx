@@ -4,11 +4,6 @@ import Nav from "@/components/Nav";
 
 const API_KEY = process.env.NEWS_API_KEY;
 
-// interface BlogPost {
-//   id: string;
-//   title: string;
-// }
-
 async function getPosts() {
   try {
     const res = await fetch(
