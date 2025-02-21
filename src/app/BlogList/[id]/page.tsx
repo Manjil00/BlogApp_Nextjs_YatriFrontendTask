@@ -20,8 +20,8 @@ try {
     if (!res.ok) throw new Error('Failed to fetch posts');
     
     const data = await res.json();
-    const posts = data.articles.map((article: any, index: number) => ({
-    id: `${article.title}-${index}`,
+    const posts = data.articles.map((article: { title: string; content?: string; description?: string; publishedAt?: string }, index: number) => ({
+        id: `${article.title}-${index}`,
     title: article.title || 'Untitled Post',
     content: article.content || article.description || 'No content available',
     publishedAt: article.publishedAt || new Date().toISOString(),
