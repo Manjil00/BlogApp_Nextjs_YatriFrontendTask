@@ -1,6 +1,6 @@
 'use client';
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -74,7 +74,7 @@ export default function BlogList({ posts }) {
             className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
           >
             <div className="p-6">
-              <h2 className="text-xl font-bold mb-3">{post.title}</h2>
+              <h2 className="text-xl font-bold mb-3 text-black">{post.title}</h2>
               <p className="text-slate-600 mb-4 line-clamp-3">
                 {post.description}
               </p>

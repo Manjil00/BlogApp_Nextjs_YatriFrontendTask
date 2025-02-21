@@ -1,5 +1,5 @@
 import Nav from "./components/Nav";
-import BlogList from "./pages/BlogList/page";
+import BlogList from "./BlogList/page";
 
 const API_KEY = process.env.NEWS_API_KEY;
 
