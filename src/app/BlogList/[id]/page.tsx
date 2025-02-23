@@ -1,62 +1,46 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
+
+type Post = {
+  id: string;
+  title: string;
+  description: string;
+  publishedAt: string;
+};
 
 const API_KEY = process.env.NEWS_API_KEY;
 
-export async function getPost(id: string) {
+async function getPost(id: string): Promise<Post | null> {
   try {
-    const res = await fetch(
-      `https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`,
-      { next: { revalidate: 5000 } }
-    );
-
-    if (!res.ok) throw new Error("Failed to fetch posts");
-
+    const res = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`);
+    if (!res.ok) return null;
     const data = await res.json();
-    const posts = data.articles.map((article: { title: any; content: any; description: any; publishedAt: any; }, index: any) => ({
-      id: `${article.title}-${index}`,
-      title: article.title || "Untitled Post",
-      content: article.content || article.description || "No content available",
-      publishedAt: article.publishedAt || new Date().toISOString(),
-    }));
-
-    return posts.find((post: { id: string; }) => post.id === decodeURIComponent(id)) || null;
+    return data.articles.length > 0
+      ? {
+          id,
+          title: data.articles[0].title || "Untitled",
+          description: data.articles[0].description || "No description",
+          publishedAt: data.articles[0].publishedAt || new Date().toISOString(),
+        }
+      : null;
   } catch (error) {
     console.error(error);
     return null;
   }
 }
 
-export default async function BlogPost({params}) {
+export default async function PostPage({ params }: { params: { id: string } }) {
   const post = await getPost(params.id);
-
-  if (!post) {
-    notFound();
-  }
+  if (!post) return notFound();
 
   return (
-    <main className="min-h-screen bg-black text-white p-8">
-      <div className="container mx-auto max-w-4xl">
-        <Link href="/" className="text-blue-500 hover:text-blue-600 mb-8 inline-block">
-          ← Back to Blogs
-        </Link>
-
-        <article className="space-y-6">
-          <h1 className="text-4xl font-bold">{post.title}</h1>
-          <div className="text-gray-400 text-sm">
-            Published:{" "}
-            {new Date(post.publishedAt).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
-          </div>
-
-          <div className="prose prose-invert max-w-none">
-            <p className="whitespace-pre-wrap">{post.content}</p>
-          </div>
-        </article>
-      </div>
-    </main>
+    <div className="text-white p-6">
+      <h1 className="text-3xl">{post.title}</h1>
+      <p>{post.description}</p>
+      <span className="text-gray-500">{new Date(post.publishedAt).toLocaleDateString()}</span>
+    </div>
   );
+}
+
+export async function generateStaticParams() {
+  return [];
 }
